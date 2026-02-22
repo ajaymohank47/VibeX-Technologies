@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Montserrat', system-ui, sans-serif;
+
+  --color-corporate-navy: #002D62;
+  --color-corporate-navy-light: #003B80;
+  --color-corporate-navy-dark: #001A38;
+
+  --color-accent-teal: #0F766E;
+  --color-accent-teal-light: #14B8A6;
+
+  --color-accent-orange: #EA580C;
+  --color-accent-orange-light: #F97316;
+
+  --color-surface-grey: #F8FAFC;
+  --color-border-grey: #E2E8F0;
+}
+
+:root {
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  @apply selection:bg-accent-teal selection:text-white bg-white text-slate-700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-grey);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
