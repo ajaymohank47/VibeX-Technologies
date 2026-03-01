@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
     Monitor, Smartphone, PenTool, Code, Server, Database,
@@ -100,9 +101,9 @@ const Services = () => {
                                         </p>
 
                                         <div className="mt-8 pt-4 border-t border-border-grey w-full">
-                                            <span className="text-accent-teal font-semibold text-sm group-hover:text-accent-orange transition-colors flex items-center gap-2">
+                                            <Link to="/services" className="text-accent-teal font-semibold text-sm group-hover:text-accent-orange transition-colors flex items-center gap-2">
                                                 Learn more <span className="text-lg leading-none">&rarr;</span>
-                                            </span>
+                                            </Link>
                                         </div>
                                     </motion.div>
                                 ))}
@@ -113,15 +114,6 @@ const Services = () => {
 
             </div>
 
-            <style jsx>{`
-        .hide-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .hide-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
         </section>
     );
 };

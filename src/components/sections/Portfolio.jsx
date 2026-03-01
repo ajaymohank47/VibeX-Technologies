@@ -81,6 +81,7 @@ const Portfolio = () => {
                                 <img
                                     src={project.image}
                                     alt={project.title}
+                                    loading="lazy"
                                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-corporate-navy-dark to-transparent"></div>
@@ -101,9 +102,9 @@ const Portfolio = () => {
                                         Visit Live <ArrowUpRight size={16} />
                                     </a>
                                 ) : (
-                                    <button className="text-white hover:text-accent-orange transition-colors font-semibold flex items-center gap-2 text-sm uppercase tracking-wider group-hover:translate-x-1 duration-300">
-                                        Read Case Study <ArrowUpRight size={16} />
-                                    </button>
+                                    <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-slate-400 text-xs font-semibold tracking-wider uppercase">
+                                        Case Study Coming Soon
+                                    </span>
                                 )}
                             </div>
                         </motion.div>

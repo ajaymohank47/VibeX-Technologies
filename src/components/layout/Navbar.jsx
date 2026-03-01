@@ -26,11 +26,11 @@ const Navbar = () => {
     ];
 
     return (
-        <header className={`fixed w-full z-50 transition-all duration-300 font-sans ${scrolled ? 'bg-white shadow-md' : 'bg-white border-b border-border-grey'}`}>
+        <header className={`fixed w-full z-50 transition-all duration-300 font-sans ${scrolled ? 'bg-white shadow-lg' : 'bg-white border-b border-border-grey'}`}>
 
             {/* Top Utility Bar (hidden on mobile) */}
-            <div className={`hidden lg:flex bg-corporate-navy text-white py-1.5 px-6 justify-end text-xs font-semibold ${scrolled ? 'hidden' : 'block'}`}>
-                <div className="flex gap-6">
+            <div className={`hidden lg:flex bg-corporate-navy text-white py-1.5 px-8 justify-end text-xs font-semibold transition-all duration-300 ${scrolled ? 'max-h-0 py-0 overflow-hidden' : 'max-h-10'}`}>
+                <div className="flex gap-6 items-center">
                     {topBarLinks.map(link => (
                         <Link key={link.name} to={link.path} className="hover:text-accent-teal-light transition-colors">
                             {link.name}
@@ -40,17 +40,20 @@ const Navbar = () => {
             </div>
 
             {/* Main Navigation */}
-            <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-                {/* Logo */}
-                <Link to="/" className="text-2xl font-bold font-heading text-corporate-navy tracking-tight flex items-center gap-2">
-                    <img src={Logo} alt="VibeX Logo" className="h-16 w-auto" />
-                    VibeX
+            <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
+                {/* Logo + Brand Name */}
+                <Link to="/" className="flex items-center gap-3 group">
+                    <img src={Logo} alt="VibeX Logo" className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
+                    <div className="hidden sm:block">
+                        <div className="font-heading font-black text-corporate-navy text-lg leading-none tracking-tight">VibeX</div>
+                        <div className="text-accent-teal text-[10px] font-bold tracking-[0.2em] uppercase leading-none mt-0.5">Technologies</div>
+                    </div>
                 </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden lg:flex items-center gap-8 font-semibold text-corporate-navy">
-                    <Link to="/" className="hover:text-accent-teal transition-colors">Home</Link>
-                    <Link to="/about" className="hover:text-accent-teal transition-colors">About Us</Link>
+                    <Link to="/" className="relative hover:text-accent-teal transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-accent-teal after:transition-all hover:after:w-full">Home</Link>
+                    <Link to="/about" className="relative hover:text-accent-teal transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-accent-teal after:transition-all hover:after:w-full">About Us</Link>
 
                     {/* Mega Menu Trigger */}
                     <div
@@ -58,7 +61,7 @@ const Navbar = () => {
                         onMouseEnter={() => setMegaMenuOpen(true)}
                         onMouseLeave={() => setMegaMenuOpen(false)}
                     >
-                        Services <ChevronDown size={16} />
+                        Services <ChevronDown size={16} className={`transition-transform duration-200 ${megaMenuOpen ? 'rotate-180' : ''}`} />
 
                         {/* Mega Menu Dropdown */}
                         <AnimatePresence>
@@ -73,10 +76,10 @@ const Navbar = () => {
                                     <div className="flex-1 p-8 bg-surface-grey">
                                         <h3 className="font-heading font-bold text-lg mb-4 text-corporate-navy border-b border-border-grey pb-2">Development Services</h3>
                                         <ul className="space-y-3 font-medium text-sm text-slate-600">
-                                            <li><Link to="/services" className="hover:text-accent-teal flex items-center gap-2"><Monitor size={16} /> Web Apps & APIs</Link></li>
+                                            <li><Link to="/services" className="hover:text-accent-teal flex items-center gap-2"><Monitor size={16} /> Web Apps &amp; APIs</Link></li>
                                             <li><Link to="/services" className="hover:text-accent-teal flex items-center gap-2"><Smartphone size={16} /> Native Mobile Apps</Link></li>
                                             <li><Link to="/services" className="hover:text-accent-teal flex items-center gap-2"><Cloud size={16} /> Cloud Architecture</Link></li>
-                                            <li><Link to="/services" className="hover:text-accent-teal flex items-center gap-2"><ShieldCheck size={16} /> Security & Audits</Link></li>
+                                            <li><Link to="/services" className="hover:text-accent-teal flex items-center gap-2"><ShieldCheck size={16} /> Security &amp; Audits</Link></li>
                                         </ul>
                                     </div>
                                     <div className="flex-1 p-8">
@@ -93,7 +96,7 @@ const Navbar = () => {
                         </AnimatePresence>
                     </div>
 
-                    <Link to="/portfolio" className="hover:text-accent-teal transition-colors">Our Work</Link>
+                    <Link to="/portfolio" className="relative hover:text-accent-teal transition-colors after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-accent-teal after:transition-all hover:after:w-full">Our Work</Link>
 
                     <Button variant="accent" className="px-6 py-2" to="/contact">
                         Start a Project

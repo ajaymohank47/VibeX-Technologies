@@ -95,13 +95,14 @@ const IndustryExpertise = () => {
                                 transition={{ duration: 0.4 }}
                                 className="bg-white rounded-xl border border-border-grey shadow-lg p-8 md:p-12 h-full flex flex-col justify-center"
                             >
-                                <div className="w-16 h-16 bg-surface-grey border border-border-grey rounded-xl flex items-center justify-center text-accent-teal mb-8">
-                                    <currentData.icon size={32} strokeWidth={1.5} />
+                                <div className="flex items-start justify-between gap-4 mb-4">
+                                    <h3 className="text-3xl font-heading font-bold text-corporate-navy">
+                                        {currentData.headline}
+                                    </h3>
+                                    <div className="w-16 h-16 bg-surface-grey border border-border-grey rounded-xl flex items-center justify-center text-accent-teal shrink-0">
+                                        <currentData.icon size={32} strokeWidth={1.5} />
+                                    </div>
                                 </div>
-
-                                <h3 className="text-3xl font-heading font-bold text-corporate-navy mb-4">
-                                    {currentData.headline}
-                                </h3>
 
                                 <p className="text-slate-600 text-lg mb-8 leading-relaxed">
                                     {currentData.desc}

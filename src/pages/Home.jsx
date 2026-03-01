@@ -24,8 +24,6 @@ const Home = () => {
             <Pricing />
             <Testimonials />
             <Contact />
-
-
         </Layout>
     );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin, Youtube } from 'lucide-react';
+import { Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import Button from '../ui/Button';
 import Logo from '../../assets/Logo.png';
 
@@ -12,19 +12,23 @@ const Footer = () => {
 
                     {/* Company Info & Social Cluster */}
                     <div>
-                        <Link to="/" className="text-3xl font-bold font-heading text-white tracking-tight mb-6 flex items-center gap-2">
+                        <Link to="/" className="flex items-center gap-3 mb-6 group">
                             <img src={Logo} alt="VibeX Logo" className="h-10 w-auto" />
-                            VibeX
+                            <span className="text-white font-heading font-bold text-xl tracking-tight leading-tight">
+                                VibeX<br />
+                                <span className="text-slate-400 text-sm font-medium tracking-widest uppercase">Technologies</span>
+                            </span>
                         </Link>
                         <p className="text-slate-400 mb-6 leading-relaxed text-sm">
                             Empowering global enterprises with scalable software development and dedicated IT support.
                         </p>
                         <div className="flex space-x-3">
-                            {[Linkedin, Twitter, Facebook, Youtube].map((Icon, index) => (
-                                <a key={index} href="#" className="w-10 h-10 rounded bg-corporate-navy flex items-center justify-center hover:bg-accent-teal hover:text-white transition-colors text-slate-300 shadow-sm border border-slate-700 hover:border-accent-teal">
-                                    <Icon size={18} />
-                                </a>
-                            ))}
+                            <a href="https://www.linkedin.com/company/vibex-technologies" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded bg-corporate-navy flex items-center justify-center hover:bg-accent-teal hover:text-white transition-colors text-slate-300 shadow-sm border border-slate-700 hover:border-accent-teal">
+                                <Linkedin size={18} />
+                            </a>
+                            <a href="https://www.instagram.com/vibex.technologies/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded bg-corporate-navy flex items-center justify-center hover:bg-accent-teal hover:text-white transition-colors text-slate-300 shadow-sm border border-slate-700 hover:border-accent-teal">
+                                <Instagram size={18} />
+                            </a>
                         </div>
                     </div>
 
@@ -87,7 +91,7 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-xs font-medium">
-                    <p>© {new Date().getFullYear()} VibeX Technologies Inc. All Rights Reserved.</p>
+                    <p>© {new Date().getFullYear()} VibeX Technologies. All Rights Reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                         <Link to="/terms" className="hover:text-white transition-colors">Terms of Use</Link>

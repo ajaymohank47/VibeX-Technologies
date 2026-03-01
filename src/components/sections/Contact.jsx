@@ -11,7 +11,7 @@ const Contact = () => {
         setStatus("sending");
         const formData = new FormData(event.target);
 
-        formData.append("access_key", "e451a4d4-e17b-47bc-8663-6276e00f9f22");
+        formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY || "e451a4d4-e17b-47bc-8663-6276e00f9f22");
 
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
@@ -78,7 +78,7 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-lg mb-1">Global Support line</h4>
-                                        <p className="text-slate-300 text-sm">+91 9004575835<br />Mon-Fri, 9am - 6pm EST</p>
+                                        <p className="text-slate-300 text-sm">+91 9004575835<br />Mon-Sat, 9am – 6pm IST</p>
                                     </div>
                                 </div>
 
@@ -113,7 +113,7 @@ const Contact = () => {
                                         type="text"
                                         name="First Name"
                                         required
-                                        className="w-full bg-white border border-border-grey rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium"
+                                        className="w-full bg-white border border-border-grey rounded px-4 py-4 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium"
                                     />
                                 </div>
                                 <div className="space-y-1.5">
@@ -122,7 +122,7 @@ const Contact = () => {
                                         type="text"
                                         name="Last Name"
                                         required
-                                        className="w-full bg-white border border-border-grey rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium"
+                                        className="w-full bg-white border border-border-grey rounded px-4 py-4 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium"
                                     />
                                 </div>
                             </div>
@@ -133,13 +133,13 @@ const Contact = () => {
                                     type="email"
                                     name="email"
                                     required
-                                    className="w-full bg-white border border-border-grey rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium"
+                                    className="w-full bg-white border border-border-grey rounded px-4 py-4 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium"
                                 />
                             </div>
 
                             <div className="space-y-1.5">
                                 <label className="text-xs font-bold text-corporate-navy uppercase tracking-wider">Department / Inquiry Type</label>
-                                <select name="Department" required className="w-full bg-white border border-border-grey rounded px-4 py-3 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium appearance-none">
+                                <select name="Department" required className="w-full bg-white border border-border-grey rounded px-4 py-4 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium appearance-none">
                                     <option value="sales">Sales & Solutions</option>
                                     <option value="support">Technical Support</option>
                                     <option value="press">Press & Media</option>
@@ -159,13 +159,14 @@ const Contact = () => {
 
                             <Button
                                 variant="accent"
-                                className={`w-full mt-4 group ${status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                className={`w-full mt-2 group ${status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''}`}
                                 disabled={status === 'sending'}
                                 type="submit"
                             >
                                 {status === 'sending' ? 'Sending...' : 'Submit Request'}
                                 {status !== 'sending' && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
                             </Button>
+
 
                             {status === 'success' && (
                                 <motion.div

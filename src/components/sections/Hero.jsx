@@ -80,7 +80,7 @@ const Hero = () => {
                                 {carouselData[currentSlide].subhead}
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-4">
+                            <div className="flex flex-wrap gap-4">
                                 <Button variant="accent" className="group text-lg py-4 px-8" to="/contact">
                                     Start a Project
                                     <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -88,12 +88,13 @@ const Hero = () => {
                                 <Button variant="outline" className="border-white text-white hover:bg-white hover:text-corporate-navy text-lg py-4 px-8" to="/portfolio">
                                     View Our Work
                                 </Button>
+
                             </div>
                         </motion.div>
                     </AnimatePresence>
 
                     {/* Carousel Indicators */}
-                    <div className="flex gap-3 mt-16">
+                    <div className="flex gap-3 mt-10">
                         {carouselData.map((_, idx) => (
                             <button
                                 key={idx}
@@ -101,6 +102,21 @@ const Hero = () => {
                                 className={`h-2 transition-all duration-500 rounded-full ${currentSlide === idx ? 'w-12 bg-accent-teal' : 'w-4 bg-white/30 hover:bg-white/50'}`}
                                 aria-label={`Go to slide ${idx + 1}`}
                             />
+                        ))}
+                    </div>
+
+                    {/* Mobile-only quick stats (visible on small screens instead of the 3D graphic) */}
+                    <div className="grid grid-cols-2 gap-3 mt-10 lg:hidden">
+                        {[
+                            { value: '15+', label: 'Apps Deployed' },
+                            { value: '3+', label: 'Years Experience' },
+                            { value: '20+', label: 'Expert Devs' },
+                            { value: '24/7', label: 'Global Support' },
+                        ].map((s, i) => (
+                            <div key={i} className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-3 text-center">
+                                <div className="text-white font-heading font-black text-xl">{s.value}</div>
+                                <div className="text-slate-300 text-xs font-medium mt-0.5">{s.label}</div>
+                            </div>
                         ))}
                     </div>
                 </div>

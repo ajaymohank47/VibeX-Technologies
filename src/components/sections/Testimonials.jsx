@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
@@ -8,32 +8,29 @@ const testimonials = [
         role: "Head of department",
         company: "Educational Institution",
         review: "VibeX revolutionized our campus operations with the Campus Buddy app. Managing attendance and event registrations is now effortless.",
-        image: "https://i.pravatar.cc/150?u=rajesh"
     },
     {
         name: "Vaibhav Bhaliya",
         role: "CTO",
         company: "FinTech Platform",
         review: "The Xcrypt Payment Gateway they engineered for us is incredibly robust. It gave our investors total confidence.",
-        image: "https://i.pravatar.cc/150?u=marcus"
     },
     {
         name: "Dillon Evans",
         role: "CEO",
         company: "JRE Services LLC",
         review: "Our commercial digital presence was completely transformed. VibeX delivered a highly responsive, modern website with flawless animations that perfectly captures our brand identity.",
-        image: "https://i.pravatar.cc/150?u=sarah2"
     },
     {
-        name: "Executive Team",
+        name: "Conroe Juanb",
         role: "Management",
         company: "MAQ Services",
         review: "We needed a modern, responsive website for our service sector. VibeX delivered an exceptional platform with a beautifully designed user interface that significantly improved our digital presence.",
-        image: "https://i.pravatar.cc/150?u=maq"
     }
 ];
 
 const Testimonials = () => {
+    const [isPaused, setIsPaused] = useState(false);
     return (
         <section className="py-24 bg-surface-grey border-b border-border-grey overflow-hidden" id="testimonials">
             <div className="container mx-auto px-6">
@@ -54,8 +51,10 @@ const Testimonials = () => {
 
                     <motion.div
                         className="flex gap-8 py-4"
-                        animate={{ x: ["0%", "-50%"] }}
+                        animate={isPaused ? {} : { x: ["0%", "-50%"] }}
                         transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
                     >
                         {[...testimonials, ...testimonials].map((t, index) => (
                             <div
@@ -67,11 +66,9 @@ const Testimonials = () => {
                                 <p className="text-slate-600 mb-10 leading-relaxed relative z-10 text-lg italic flex-grow">"{t.review}"</p>
 
                                 <div className="flex items-center gap-4 border-t border-border-grey pt-6 mt-auto">
-                                    <img
-                                        src={t.image}
-                                        alt={t.name}
-                                        className="w-14 h-14 rounded-full object-cover border-2 border-surface-grey"
-                                    />
+                                    <div className="w-14 h-14 rounded-full bg-corporate-navy flex items-center justify-center text-white font-bold font-heading text-xl shrink-0">
+                                        {t.name.split(' ').map(n => n.charAt(0)).slice(0, 2).join('')}
+                                    </div>
                                     <div>
                                         <h4 className="text-corporate-navy font-bold font-heading">{t.name}</h4>
                                         <p className="text-slate-500 text-sm font-medium">{t.role} | {t.company}</p>

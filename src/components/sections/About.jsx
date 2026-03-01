@@ -5,8 +5,8 @@ import AjaymohanImg from '../../assets/Ajaymohan.webp';
 
 const stats = [
     { icon: Globe2, value: "15+", label: "Apps Deployed" },
-    { icon: BarChart3, value: "99.9%", label: "Uptime Guaranteed" },
-    { icon: Users2, value: "50+", label: "Expert Developers" },
+    { icon: BarChart3, value: "100%", label: "Uptime Guaranteed" },
+    { icon: Users2, value: "20+", label: "Expert Developers" },
     { icon: ShieldCheck, value: "100%", label: "Secure Baselines" },
 ];
 
