@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Mail, Twitter } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import Layout from '../components/layout/Layout';
 import AjayImage from '../assets/Ajaymohan.webp';
 
@@ -9,18 +9,21 @@ const teamMembers = [
         role: "Founder & CEO",
         image: AjayImage,
         bio: "Visionary leader driving VibeX's global strategy and enterprise solutions.",
+        linkedin: "https://www.linkedin.com/in/ajaymohank",
     },
     {
         name: "Harshit Upadhyay",
         role: "Co-Founder & CTO",
         image: "https://ui-avatars.com/api/?name=Harshit+Upadhyay&background=020617&color=fff&size=200",
         bio: "Technology expert heading our scalable software architecture and engineering teams.",
+        linkedin: "https://www.linkedin.com/in/harshit580/",
     },
     {
         name: "Shreyas Gaikwad",
         role: "Co-Founder & COO",
         image: "https://ui-avatars.com/api/?name=Shreyas+Gaikwad&background=020617&color=fff&size=200",
         bio: "Operations specialist ensuring seamless project delivery and client satisfaction.",
+        linkedin: "https://www.linkedin.com/in/shreyas-gaikwad-a1b410319/",
     }
 ];
 
@@ -55,15 +58,15 @@ const Leadership = () => {
                                     <p className="text-slate-600 text-sm leading-relaxed mb-8">
                                         {member.bio}
                                     </p>
-                                    <div className="flex justify-center space-x-4">
-                                        <a href="#" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-accent-teal hover:text-white transition-colors">
+                                    <div className="flex justify-center">
+                                        <a
+                                            href={member.linkedin}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-accent-teal hover:text-white hover:border-accent-teal transition-colors duration-300"
+                                            aria-label={`${member.name} LinkedIn`}
+                                        >
                                             <Linkedin size={18} />
-                                        </a>
-                                        <a href="#" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-accent-teal hover:text-white transition-colors">
-                                            <Twitter size={18} />
-                                        </a>
-                                        <a href="#" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-accent-teal hover:text-white transition-colors">
-                                            <Mail size={18} />
                                         </a>
                                     </div>
                                 </div>
