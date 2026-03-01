@@ -78,13 +78,7 @@ const Pricing = () => {
                             )}
 
                             <h3 className="text-2xl font-heading font-bold text-corporate-navy mb-3">{plan.name}</h3>
-                            <p className="text-slate-500 mb-6 text-sm leading-relaxed border-b border-border-grey pb-6">{plan.desc}</p>
-
-                            {/* Price Display */}
-                            <div className="mb-8">
-                                <div className={`text-2xl font-heading font-black mb-1 ${plan.highlight ? 'text-accent-teal' : 'text-corporate-navy'}`}>{plan.price}</div>
-                                <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">{plan.priceNote}</p>
-                            </div>
+                            <p className="text-slate-500 mb-8 text-sm leading-relaxed border-b border-border-grey pb-6">{plan.desc}</p>
 
                             <div className="mb-4">
                                 <h4 className="text-sm font-bold text-corporate-navy uppercase tracking-wider mb-6">Included Capabilities:</h4>
