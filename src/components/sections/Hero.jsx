@@ -121,76 +121,148 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Right: Abstract 3D Tech Graphic */}
+                {/* Right: Abstract Geometric Grid / Connecting Dots */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2 }}
                     className="relative hidden lg:flex items-center justify-center h-full"
                 >
-                    {/* Abstract Composition mimicking Development Architecture */}
-                    <div className="relative w-[500px] h-[500px]">
-                        {/* Center Sphere/Core Server */}
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full border border-white/10 bg-gradient-to-tr from-white/5 to-transparent backdrop-blur-xl shadow-[0_0_80px_rgba(20,184,166,0.15)] flex items-center justify-center"
-                        >
-                            <div className="w-32 h-32 rounded-full border border-accent-teal/40 relative flex items-center justify-center">
-                                <Database size={40} className="text-accent-teal opacity-70" strokeWidth={1.5} />
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-corporate-navy rounded-full border-2 border-accent-teal" />
-                                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-4 h-4 bg-corporate-navy rounded-full border-2 border-accent-teal" />
-                            </div>
-                        </motion.div>
+                    <div className="relative w-[500px] h-[500px] flex items-center justify-center">
+                        {/* Glow Behind */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent-teal/5 rounded-full blur-[80px] pointer-events-none" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/3 -translate-y-1/3 w-64 h-64 bg-[#002244]/40 rounded-full blur-[60px] pointer-events-none" />
 
-                        {/* Orbital Rings */}
-                        <motion.div
-                            animate={{ rotate: -360 }}
-                            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                            className="absolute top-0 left-0 w-full h-full rounded-full border border-white/10 border-dashed"
-                        >
-                            <div className="absolute top-[14%] right-[14%] w-4 h-4 bg-accent-orange rounded-full shadow-[0_0_15px_#f97316]" />
-                            <div className="absolute bottom-[14%] left-[14%] w-3 h-3 bg-accent-teal rounded-full shadow-[0_0_15px_#14b8a6]" />
-                        </motion.div>
+                        {/* SVG Grid Connections */}
+                        <svg className="absolute inset-0 w-full h-full overflow-visible pointer-events-none" viewBox="0 0 500 500">
+                            {/* Static Lines */}
+                            <path d="M 150 150 L 350 150 L 400 300 L 250 400 L 100 300 Z" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+                            <path d="M 250 250 L 150 150 M 250 250 L 350 150 M 250 250 L 400 300 M 250 250 L 250 400 M 250 250 L 100 300" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
 
-                        {/* Floating Tech Stack Node 1. Frontend */}
-                        <motion.div
-                            animate={{ y: [-15, 15, -15] }}
-                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute top-[15%] left-[0%] bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-xl flex items-center gap-4 shadow-2xl"
-                        >
-                            <div className="w-12 h-12 bg-white/10 rounded-lg text-white flex items-center justify-center border border-white/10">
-                                <Code size={24} />
-                            </div>
-                            <div>
-                                <div className="text-white font-bold text-sm tracking-wide">Frontend Client</div>
-                                <div className="text-slate-400 text-xs font-mono mt-1">React / Mobile</div>
-                            </div>
-                        </motion.div>
+                            {/* Animated Glowing Data Lines */}
+                            {/* Path 1: Client to Core to DB */}
+                            <motion.path
+                                d="M 100 300 L 250 250 L 350 150"
+                                fill="none"
+                                stroke="#14b8a6"
+                                strokeWidth="2"
+                                strokeDasharray="15 350"
+                                animate={{ strokeDashoffset: [0, -365] }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                style={{ filter: 'drop-shadow(0 0 5px rgba(20,184,166,0.8))' }}
+                            />
+                            {/* Path 2: Analytics to Core to Frontend */}
+                            <motion.path
+                                d="M 400 300 L 250 250 L 150 150"
+                                fill="none"
+                                stroke="#f97316"
+                                strokeWidth="2"
+                                strokeDasharray="15 350"
+                                animate={{ strokeDashoffset: [0, -365] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 1 }}
+                                style={{ filter: 'drop-shadow(0 0 5px rgba(249,115,22,0.8))' }}
+                            />
+                            {/* Path 3: Security to Core */}
+                            <motion.path
+                                d="M 250 400 L 250 250 L 350 150"
+                                fill="none"
+                                stroke="#14b8a6"
+                                strokeWidth="1.5"
+                                strokeDasharray="12 300"
+                                animate={{ strokeDashoffset: [0, -312] }}
+                                transition={{ duration: 3.5, repeat: Infinity, ease: "linear", delay: 0.5 }}
+                                style={{ filter: 'drop-shadow(0 0 4px rgba(20,184,166,0.6))' }}
+                            />
+                            {/* Center Node Data Pulsing */}
+                            <motion.circle
+                                cx="250" cy="250" r="42"
+                                fill="none" stroke="#14b8a6" strokeWidth="1"
+                                animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            />
+                        </svg>
 
-                        {/* Floating Tech Stack Node 2. Backend */}
-                        <motion.div
-                            animate={{ y: [15, -15, 15] }}
-                            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            className="absolute bottom-[30%] right-[0%] bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-xl flex items-center gap-4 shadow-2xl"
-                        >
-                            <div className="w-12 h-12 bg-accent-orange/20 rounded-lg text-accent-orange flex items-center justify-center border border-accent-orange/20">
-                                <TerminalSquare size={24} />
-                            </div>
-                            <div>
-                                <div className="text-white font-bold text-sm tracking-wide">API Gateway</div>
-                                <div className="text-accent-orange-light text-xs font-mono mt-1">Node / Python</div>
-                            </div>
-                        </motion.div>
+                        {/* --- Nodes (HTML Overlays) --- */}
 
-                        {/* Systems Status Indicator */}
+                        {/* Center Node (Cloud Core) */}
+                        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-20">
+                            <motion.div
+                                animate={{ y: [-4, 4, -4] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                className="w-20 h-20 rounded-2xl bg-corporate-navy-dark border border-white/20 shadow-[0_0_30px_rgba(20,184,166,0.15)] flex items-center justify-center relative backdrop-blur-md"
+                            >
+                                <Cloud size={32} className="text-accent-teal" />
+                                <div className="absolute -bottom-7 text-[10px] text-slate-300 font-mono tracking-widest uppercase whitespace-nowrap">Cloud Core</div>
+                            </motion.div>
+                        </div>
+
+                        {/* Top Left (Frontend) */}
+                        <div className="absolute top-[30%] left-[30%] -translate-x-1/2 -translate-y-1/2 z-10">
+                            <motion.div
+                                animate={{ y: [4, -4, 4] }}
+                                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                                className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 shadow-lg flex items-center justify-center relative backdrop-blur-md"
+                            >
+                                <Code size={20} className="text-white" />
+                                <div className="absolute -top-6 text-[10px] text-slate-400 font-mono uppercase whitespace-nowrap">Client Apps</div>
+                            </motion.div>
+                        </div>
+
+                        {/* Top Right (Database) */}
+                        <div className="absolute top-[30%] left-[70%] -translate-x-1/2 -translate-y-1/2 z-10">
+                            <motion.div
+                                animate={{ y: [-3, 3, -3] }}
+                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                                className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 shadow-lg flex items-center justify-center relative backdrop-blur-md"
+                            >
+                                <Database size={20} className="text-slate-300" />
+                                <div className="absolute -top-6 text-[10px] text-slate-400 font-mono uppercase whitespace-nowrap">Global DB</div>
+                            </motion.div>
+                        </div>
+
+                        {/* Bottom Left (Mobile/Client) */}
+                        <div className="absolute top-[60%] left-[20%] -translate-x-1/2 -translate-y-1/2 z-10">
+                            <motion.div
+                                animate={{ y: [3, -3, 3] }}
+                                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                                className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 shadow-lg flex items-center justify-center relative backdrop-blur-md"
+                            >
+                                <Terminal size={24} className="text-accent-orange" />
+                                <div className="absolute -bottom-6 text-[10px] text-slate-400 font-mono uppercase whitespace-nowrap">Edge Nodes</div>
+                            </motion.div>
+                        </div>
+
+                        {/* Bottom Right (Server/Analytics) */}
+                        <div className="absolute top-[60%] left-[80%] -translate-x-1/2 -translate-y-1/2 z-10">
+                            <motion.div
+                                animate={{ y: [-5, 5, -5] }}
+                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                                className="w-14 h-14 rounded-xl bg-corporate-navy-dark border border-accent-teal/30 shadow-[0_0_15px_rgba(20,184,166,0.15)] flex items-center justify-center relative backdrop-blur-md"
+                            >
+                                <div className="w-4 h-4 rounded-full bg-accent-teal animate-pulse" />
+                                <div className="absolute -bottom-6 text-[10px] text-accent-teal font-mono uppercase whitespace-nowrap">Processing</div>
+                            </motion.div>
+                        </div>
+
+                        {/* Bottom Center (Security) */}
+                        <div className="absolute top-[80%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10">
+                            <motion.div
+                                animate={{ y: [-2, 2, -2] }}
+                                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+                                className="w-12 h-12 rounded-full bg-white/5 border border-white/10 shadow-lg flex items-center justify-center relative backdrop-blur-md"
+                            >
+                                <ShieldCheck size={18} className="text-slate-400" />
+                            </motion.div>
+                        </div>
+
+                        {/* Floating Metric Badge */}
                         <motion.div
-                            animate={{ y: [-8, 8, -8] }}
+                            animate={{ y: [-5, 5, -5], opacity: [0.9, 1, 0.9] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                            className="absolute bottom-[15%] left-[15%] bg-black/40 backdrop-blur-md border border-white/10 px-4 py-3 rounded-full flex items-center gap-3 shadow-2xl"
+                            className="absolute top-[18%] left-[80%] bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-lg flex items-center gap-2 shadow-xl whitespace-nowrap z-30"
                         >
-                            <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]" />
-                            <span className="text-slate-300 text-xs font-mono font-semibold tracking-wider uppercase">Systems Online</span>
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]" />
+                            <span className="text-white text-xs font-mono font-bold tracking-wider">Systems Online</span>
                         </motion.div>
 
                     </div>

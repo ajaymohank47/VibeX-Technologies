@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BarChart3, Globe2, Users2, ShieldCheck } from 'lucide-react';
-import AjaymohanImg from '../../assets/Ajaymohan.webp';
+
 
 const stats = [
     { icon: Globe2, value: "15+", label: "Apps Deployed" },
@@ -69,16 +69,7 @@ const About = () => {
                             </div>
                         </div>
 
-                        {/* Founder Profile */}
-                        <div className="flex items-center gap-4 p-4 rounded-xl border border-border-grey bg-white shadow-sm inline-flex">
-                            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent-teal shadow-md">
-                                <img src={AjaymohanImg} alt="Ajaymohan" className="w-full h-full object-cover" />
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-heading font-bold text-corporate-navy tracking-tight">Ajaymohan</h4>
-                                <p className="text-accent-orange text-sm font-semibold tracking-wide uppercase">Founder & Lead Developer</p>
-                            </div>
-                        </div>
+
                     </motion.div>
 
                 </div>

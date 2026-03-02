@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vibextechnologies.online/sitemap.xml
+Sitemap: https://vibex-technologies.com/sitemap.xml
+Sitemap: https://vibex-technologies.in/sitemap.xml

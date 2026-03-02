@@ -30,7 +30,7 @@ const projects = [
         title: "JRE Commercial Web",
         client: "JRE Services LLC",
         metric: "Enhanced Digital Presence",
-        image: "https://images.unsplash.com/photo-1541888086225-ee5b99db1f26?q=80&w=2670&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2670&auto=format&fit=crop",
         desc: "Developed a modern, responsive React website showcasing commercial construction services. Built with Vite, TailwindCSS, and seamless Framer Motion animations.",
         link: "https://jre-services.com"
     },
@@ -43,12 +43,12 @@ const projects = [
         link: "https://dmct.vercel.app/"
     },
     {
-        title: "Recipe Hub SaaS",
-        client: "Community Platform",
-        metric: "Full-Stack User Flow",
-        image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=2670&auto=format&fit=crop",
-        desc: "Built a complete Recipe Sharing Platform utilizing the MERN stack. Implemented secure user authentication, personalized dashboards, and full CRUD recipe management.",
-        link: "https://recipehub-edunet.onrender.com/"
+        title: "Sharath Enterprises",
+        client: "AC & Refrigeration Supplier",
+        metric: "4,993+ Products in Stock",
+        image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2670&auto=format&fit=crop",
+        desc: "Designed and developed a clean, responsive web presence for an industrial spare parts distributor, delivering a polished brand identity and seamless user experience.",
+        link: "https://www.sharathenterprises.in/"
     }
 ];
 
