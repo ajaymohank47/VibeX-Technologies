@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin } from 'lucide-react';
+import SEO from '../components/utils/SEO';
 import Layout from '../components/layout/Layout';
 import AjayImage from '../assets/Ajaymohan.webp';
 
@@ -30,6 +31,7 @@ const teamMembers = [
 const Leadership = () => {
     return (
         <Layout>
+            <SEO title="Leadership Team" description="Meet the visionaries driving VibeX Technologies forward with innovation and expertise." path="/leadership" />
             <div className="py-24 bg-slate-50 min-h-[70vh]">
                 <div className="container mx-auto px-6">
                     <div className="text-center max-w-3xl mx-auto mb-16">

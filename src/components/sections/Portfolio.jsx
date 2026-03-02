@@ -52,16 +52,17 @@ const projects = [
     }
 ];
 
-const Portfolio = () => {
+const Portfolio = ({ isPage = false }) => {
+    const HeadingTag = isPage ? 'h1' : 'h2';
     return (
         <section className="py-24 bg-corporate-navy text-white" id="portfolio">
             <div className="container mx-auto px-6">
 
                 <div className="flex flex-col justify-center items-center text-center mb-16 max-w-3xl mx-auto">
                     <span className="text-accent-teal font-bold tracking-wider uppercase text-sm mb-4 block">Case Studies</span>
-                    <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 tracking-tight">
+                    <HeadingTag className="text-4xl md:text-5xl font-heading font-bold mb-6 tracking-tight">
                         Success Stories
-                    </h2>
+                    </HeadingTag>
                     <p className="text-slate-300 text-lg">
                         See how we've partnered with industry leaders to solve complex technological challenges and drive measurable ROI.
                     </p>

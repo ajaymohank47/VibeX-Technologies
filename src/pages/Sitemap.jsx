@@ -1,9 +1,11 @@
 import React from 'react';
+import SEO from '../components/utils/SEO';
 import Layout from '../components/layout/Layout';
 
 const Sitemap = () => {
     return (
         <Layout>
+            <SEO title="Sitemap" description="Navigate the VibeX Technologies website efficiently." path="/sitemap" />
             <div className="min-h-[70vh] flex flex-col items-center justify-center px-6">
                 <div className="text-center max-w-2xl">
                     <h1 className="text-5xl font-bold mb-6 text-corporate-navy tracking-tight font-heading">

@@ -54,7 +54,8 @@ const groupedServices = [
     }
 ];
 
-const Services = () => {
+const Services = ({ isPage = false }) => {
+    const HeadingTag = isPage ? 'h1' : 'h2';
     return (
         <section className="py-24 bg-white relative" id="services">
             <div className="container mx-auto px-6">
@@ -62,9 +63,9 @@ const Services = () => {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                     <div className="max-w-2xl">
                         <span className="text-accent-orange font-bold tracking-wider uppercase text-sm mb-4 block">Our Expertise</span>
-                        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
+                        <HeadingTag className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
                             What We Build
-                        </h2>
+                        </HeadingTag>
                         <p className="text-slate-600 text-lg">
                             End-to-end software development services tailored to your scalable business needs.
                         </p>

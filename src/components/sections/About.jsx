@@ -10,7 +10,8 @@ const stats = [
     { icon: ShieldCheck, value: "100%", label: "Secure Baselines" },
 ];
 
-const About = () => {
+const About = ({ isPage = false }) => {
+    const HeadingTag = isPage ? 'h1' : 'h2';
     return (
         <section className="py-24 relative bg-white overflow-hidden" id="about">
             <div className="container mx-auto px-6">
@@ -48,9 +49,9 @@ const About = () => {
                         className="lg:pl-8"
                     >
                         <span className="text-accent-orange font-bold tracking-wider uppercase text-sm mb-4 block">Who We Are</span>
-                        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
+                        <HeadingTag className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
                             Engineers Building Digital Futures
-                        </h2>
+                        </HeadingTag>
                         <p className="text-slate-600 text-lg leading-relaxed mb-6">
                             VibeX Technologies is a premier software development agency dedicated to building high-performance web and mobile applications from the ground up.
                         </p>

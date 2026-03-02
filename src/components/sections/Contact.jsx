@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Button from '../ui/Button';
 
-const Contact = () => {
+const Contact = ({ isPage = false }) => {
+    const HeadingTag = isPage ? 'h1' : 'h2';
     const [status, setStatus] = useState(null);
 
     const onSubmit = async (event) => {
@@ -39,9 +40,9 @@ const Contact = () => {
 
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <span className="text-accent-orange font-bold tracking-wider uppercase text-sm mb-4 block">Global Reach</span>
-                    <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
+                    <HeadingTag className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
                         Initiate Your Transformation
-                    </h2>
+                    </HeadingTag>
                     <p className="text-slate-600 text-lg">
                         Connect with our dedicated development and support team to discuss your technological requirements.
                     </p>

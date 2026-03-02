@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/utils/ScrollToTop';
 import ScrollToTopButton from './components/ui/ScrollToTopButton';
 import MobileStickyCTA from './components/ui/MobileStickyCTA';
@@ -23,30 +24,32 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <ScrollToTopButton />
-      <MobileStickyCTA />
-      <FloatingCallButton />
-      <ChatBot />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="/automation" element={<Automation />} />
-        <Route path="/process" element={<Process />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/sitemap" element={<Sitemap />} />
-        <Route path="/leadership" element={<Leadership />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <ScrollToTopButton />
+        <MobileStickyCTA />
+        <FloatingCallButton />
+        <ChatBot />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/automation" element={<Automation />} />
+          <Route path="/process" element={<Process />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/leadership" element={<Leadership />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
 

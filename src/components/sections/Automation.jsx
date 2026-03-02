@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Bot, Zap, Network, ArrowRight } from 'lucide-react';
 import Button from '../ui/Button';
 
-const Automation = () => {
+const Automation = ({ isPage = false }) => {
+    const HeadingTag = isPage ? 'h1' : 'h2';
     const features = [
         {
             icon: Bot,
@@ -39,9 +40,9 @@ const Automation = () => {
                         className="order-1 lg:order-1"
                     >
                         <span className="text-accent-teal font-bold tracking-wider uppercase text-sm mb-4 block">Intelligent Automation</span>
-                        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 leading-tight text-white tracking-tight">
+                        <HeadingTag className="text-4xl md:text-5xl font-heading font-bold mb-6 leading-tight text-white tracking-tight">
                             Hyper-Automate Your Enterprise
-                        </h2>
+                        </HeadingTag>
                         <p className="text-slate-300 text-lg mb-8 leading-relaxed">
                             We design and implement autonomous systems that drastically reduce operational overhead. By combining advanced scripting, RPA, and seamless integrations, we build infrastructures that run faster, smarter, and continuous.
                         </p>

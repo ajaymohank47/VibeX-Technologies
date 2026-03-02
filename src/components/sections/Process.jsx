@@ -77,7 +77,8 @@ const buildSteps = [
     }
 ];
 
-const Process = () => {
+const Process = ({ isPage = false }) => {
+    const HeadingTag = isPage ? 'h1' : 'h2';
     return (
         <section className="py-24 bg-slate-50 text-corporate-navy relative overflow-hidden" id="process">
 
@@ -90,9 +91,9 @@ const Process = () => {
                     <span className="text-accent-teal font-bold tracking-wider uppercase text-sm mb-4 block flex items-center justify-center gap-2">
                         <Terminal size={16} /> Engineering Process
                     </span>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black mb-6 tracking-tight leading-tight">
+                    <HeadingTag className="text-4xl md:text-5xl lg:text-6xl font-heading font-black mb-6 tracking-tight leading-tight">
                         How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-teal to-blue-600">Build</span>
-                    </h2>
+                    </HeadingTag>
                     <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium">
                         A transparent, robust, and scalable engineering lifecycle engineered to mitigate risk, accelerate delivery, and ensure enterprise-grade quality from day one.
                     </p>

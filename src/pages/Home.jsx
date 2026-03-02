@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../components/utils/SEO';
 import Layout from '../components/layout/Layout';
 import Hero from '../components/sections/Hero';
 import IndustryExpertise from '../components/sections/IndustryExpertise';
@@ -14,6 +15,7 @@ import Contact from '../components/sections/Contact';
 const Home = () => {
     return (
         <Layout>
+            <SEO title="Home" path="/" />
             <Hero />
             <IndustryExpertise />
             <About />

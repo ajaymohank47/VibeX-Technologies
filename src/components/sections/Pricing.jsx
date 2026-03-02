@@ -47,15 +47,16 @@ const plans = [
     },
 ];
 
-const Pricing = () => {
+const Pricing = ({ isPage = false }) => {
+    const HeadingTag = isPage ? 'h1' : 'h2';
     return (
         <section className="py-24 relative bg-surface-grey border-t border-border-grey" id="pricing">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <span className="text-accent-teal font-bold tracking-wider uppercase text-sm mb-4 block">Development Models</span>
-                    <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
+                    <HeadingTag className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
                         Software Development Solutions
-                    </h2>
+                    </HeadingTag>
                     <p className="text-slate-600 text-lg">
                         From rapid MVPs to dedicated engineering teams, we provide scalable development models tailored to your project's scope and velocity.
                     </p>

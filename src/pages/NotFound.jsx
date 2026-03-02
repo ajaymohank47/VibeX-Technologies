@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, ArrowLeft } from 'lucide-react';
+import SEO from '../components/utils/SEO';
 import Layout from '../components/layout/Layout';
 
 const NotFound = () => {
     return (
         <Layout>
+            <SEO title="404 | Page Not Found" description="The page you are looking for does not exist." />
             <section className="min-h-[80vh] flex items-center justify-center bg-white text-center px-6">
                 <div className="max-w-lg mx-auto">
                     {/* 404 Visual */}
