@@ -3,6 +3,7 @@ import { Linkedin } from 'lucide-react';
 import SEO from '../components/utils/SEO';
 import Layout from '../components/layout/Layout';
 import AjayImage from '../assets/Ajaymohan.webp';
+import HarshitImage from '../assets/harshit.png';
 
 const teamMembers = [
     {
@@ -15,7 +16,7 @@ const teamMembers = [
     {
         name: "Harshit Upadhyay",
         role: "Co-Founder & CTO",
-        image: "https://ui-avatars.com/api/?name=Harshit+Upadhyay&background=020617&color=fff&size=200",
+        image: HarshitImage,
         bio: "Technology expert heading our scalable software architecture and engineering teams.",
         linkedin: "https://www.linkedin.com/in/harshit580/",
     },

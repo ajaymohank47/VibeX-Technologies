@@ -16,7 +16,8 @@ const projects = [
         client: "FinTech Platform",
         metric: "Blockchain Integration",
         image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=2670&auto=format&fit=crop",
-        desc: "Engineered a secure cryptocurrency payment platform utilizing Solidity smart contracts and React. Features include QR-code generation for quick, immutable transactions."
+        desc: "Engineered a secure cryptocurrency payment platform utilizing Solidity smart contracts and React. Features include QR-code generation for quick, immutable transactions.",
+        link: "https://xcrypt-btc.vercel.app/"
     },
     {
         title: "MAQ Services Platform",
