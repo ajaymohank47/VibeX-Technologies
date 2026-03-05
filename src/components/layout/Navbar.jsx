@@ -125,6 +125,14 @@ const Navbar = () => {
                             <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
                             <Link to="/portfolio" onClick={() => setIsOpen(false)}>Our Work</Link>
                             <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+                            <hr className="border-border-grey" />
+                            <div className="flex flex-col space-y-3 text-sm font-medium text-slate-500">
+                                {topBarLinks.map(link => (
+                                    <Link key={link.name} to={link.path} onClick={() => setIsOpen(false)} className="hover:text-accent-teal transition-colors">
+                                        {link.name}
+                                    </Link>
+                                ))}
+                            </div>
                             <Button variant="accent" className="w-full mt-4" to="/contact" onClick={() => setIsOpen(false)}>
                                 Start a Project
                             </Button>
