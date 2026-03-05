@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BarChart3, Globe2, Users2, ShieldCheck } from 'lucide-react';
+import { BarChart3, Globe2, Users2, ShieldCheck, Linkedin } from 'lucide-react';
+import AjayImage from '../../assets/Ajaymohan.webp';
 
 
 const stats = [
@@ -70,12 +71,36 @@ const About = ({ isPage = false }) => {
                             </div>
                         </div>
 
+                        {/* Founder Profile Capsule */}
+                        <div className="flex items-center gap-4 bg-surface-grey border border-border-grey rounded-full pl-2 pr-6 py-2 shadow-sm w-fit">
+                            <img
+                                src={AjayImage}
+                                alt="Ajaymohan Kanojia"
+                                className="h-12 w-12 rounded-full object-cover border-2 border-white shadow-md flex-shrink-0"
+                            />
+                            <div className="leading-tight">
+                                <div className="font-bold text-corporate-navy text-sm">Ajaymohan Kanojia</div>
+                                <div className="text-accent-teal text-xs font-medium">Founder &amp; CEO</div>
+                            </div>
+                            <a
+                                href="https://www.linkedin.com/in/ajaymohank"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="ml-1 w-8 h-8 rounded-full bg-white border border-border-grey flex items-center justify-center text-slate-400 hover:bg-accent-teal hover:text-white hover:border-accent-teal transition-colors duration-300"
+                                aria-label="Ajaymohan LinkedIn"
+                            >
+                                <Linkedin size={14} />
+                            </a>
+                        </div>
+
+
 
                     </motion.div>
 
                 </div>
             </div>
         </section>
+
     );
 };
 
