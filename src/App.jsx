@@ -13,6 +13,8 @@ import Portfolio from './pages/Portfolio';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import BlogCampusBuddy from './pages/BlogCampusBuddy';
+import BlogXcrypt from './pages/BlogXcrypt';
 import Careers from './pages/Careers';
 import Automation from './pages/Automation';
 import Process from './pages/Process';
@@ -39,6 +41,8 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/campus-buddy-app" element={<BlogCampusBuddy />} />
+          <Route path="/blog/xcrypt-payment-gateway" element={<BlogXcrypt />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/automation" element={<Automation />} />
           <Route path="/process" element={<Process />} />
