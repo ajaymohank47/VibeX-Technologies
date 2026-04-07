@@ -6,7 +6,7 @@ import ContactSection from '../components/sections/Contact';
 const Contact = () => {
     return (
         <Layout>
-            <SEO title="Contact Us" description="Connect with our dedicated development and support team to discuss your technological requirements." path="/contact" />
+            <SEO path="/contact" />
             <div className="pt-10">
                 <ContactSection isPage={true} />
             </div>

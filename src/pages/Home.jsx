@@ -15,7 +15,7 @@ import Contact from '../components/sections/Contact';
 const Home = () => {
     return (
         <Layout>
-            <SEO title="Home" path="/" />
+            <SEO path="/" />
             <Hero />
             <IndustryExpertise />
             <About />

@@ -38,11 +38,7 @@ const blogPosts = [
 const Blog = () => {
     return (
         <Layout>
-            <SEO
-                title="Blog & Insights"
-                description="Read our latest thoughts on software development, mobile engineering, blockchain, and technology trends from the VibeX Technologies team."
-                path="/blog"
-            />
+            <SEO path="/blog" />
 
             {/* Page Header */}
             <div className="bg-slate-50 border-b border-slate-100 py-20">

@@ -7,7 +7,7 @@ import Pricing from '../components/sections/Pricing';
 const Services = () => {
     return (
         <Layout>
-            <SEO title="Services" description="End-to-end software development services tailored to your scalable business needs." path="/services" />
+            <SEO path="/services" />
             <div className="pt-10">
                 <ServicesSection isPage={true} />
                 <Pricing />

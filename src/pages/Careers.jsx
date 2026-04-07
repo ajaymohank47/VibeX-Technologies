@@ -6,7 +6,7 @@ import Button from '../components/ui/Button';
 const Careers = () => {
     return (
         <Layout>
-            <SEO title="Careers" description="Join the VibeX Technologies team and help us build the future of digital technology." path="/careers" />
+            <SEO path="/careers" />
             <div className="min-h-[70vh] flex items-center justify-center px-6">
                 <div className="text-center max-w-2xl">
                     <div className="inline-block px-4 py-1 rounded-full bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-sm mb-6 font-semibold uppercase tracking-wider">

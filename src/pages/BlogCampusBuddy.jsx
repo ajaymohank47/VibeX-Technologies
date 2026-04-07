@@ -7,11 +7,7 @@ import Layout from '../components/layout/Layout';
 const BlogCampusBuddy = () => {
     return (
         <Layout>
-            <SEO
-                title="Building Campus Buddy: A Cross-Platform Mobile App for Smart Education"
-                description="How VibeX Technologies engineered a React Native + Java mobile solution to digitize student form management, event registrations, and attendance tracking."
-                path="/blog/campus-buddy-app"
-            />
+            <SEO path="/blog/campus-buddy-app" />
 
             {/* Hero Banner */}
             <div className="relative bg-corporate-navy overflow-hidden">

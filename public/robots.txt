@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /dist/
+
+# Block crawling of React router paths that have no separate HTML (SPA)
+# Google will still index these via JavaScript rendering
 
 Sitemap: https://vibex-technologies.com/sitemap.xml
-Sitemap: https://vibex-technologies.in/sitemap.xml

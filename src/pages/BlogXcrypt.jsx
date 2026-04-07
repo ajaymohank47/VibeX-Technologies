@@ -7,11 +7,7 @@ import Layout from '../components/layout/Layout';
 const BlogXcrypt = () => {
     return (
         <Layout>
-            <SEO
-                title="Xcrypt: Building a Secure Crypto Payment Gateway with Solidity & React"
-                description="How VibeX Technologies engineered a blockchain-native payment platform with QR-code transactions, Solidity smart contracts, and immutable on-chain records."
-                path="/blog/xcrypt-payment-gateway"
-            />
+            <SEO path="/blog/xcrypt-payment-gateway" />
 
             {/* Hero Banner */}
             <div className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #001A38 0%, #002D62 50%, #0F4C5C 100%)' }}>
