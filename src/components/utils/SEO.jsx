@@ -82,7 +82,7 @@ const PAGE_SEO = {
 const SITE_URL = 'https://vibex-technologies.com';
 const DEFAULT_IMAGE = `${SITE_URL}/favicon.png`;
 
-const SEO = ({ title, description, path = '', ogImage }) => {
+const SEO = ({ title, description, path = '', ogImage, noIndex = false }) => {
     // Use the page data map as the priority source, then fall back to props
     const pageData = PAGE_SEO[path];
     const seoTitle = pageData?.title || (title ? `${title} | VibeX Technologies` : PAGE_SEO['/'].title);
@@ -121,6 +121,10 @@ const SEO = ({ title, description, path = '', ogImage }) => {
             <title>{seoTitle}</title>
             <meta name="description" content={seoDescription} />
             <link rel="canonical" href={canonicalUrl} />
+            {noIndex
+                ? <meta name="robots" content="noindex, nofollow" />
+                : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+            }
 
             {/* Open Graph */}
             <meta property="og:title" content={seoTitle} />

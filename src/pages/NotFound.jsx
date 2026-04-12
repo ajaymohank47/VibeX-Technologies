@@ -7,7 +7,7 @@ import Layout from '../components/layout/Layout';
 const NotFound = () => {
     return (
         <Layout>
-            <SEO title="404 | Page Not Found" description="The page you are looking for does not exist." />
+            <SEO title="404 | Page Not Found" description="The page you are looking for does not exist." noIndex={true} />
             <section className="min-h-[80vh] flex items-center justify-center bg-white text-center px-6">
                 <div className="max-w-lg mx-auto">
                     {/* 404 Visual */}
