@@ -27,11 +27,6 @@ const PAGE_SEO = {
         description:
             'See how VibeX Technologies has built impactful products including Campus Buddy (EdTech ERP), Xcrypt Payment Gateway, and more. Explore our case studies and client success stories.',
     },
-    '/portfolio/campus-buddy': {
-        title: 'Campus Buddy — Mobile ERP & Admission Portal | Built by VibeX Technologies',
-        description:
-            'Campus Buddy is a full-featured Mobile ERP System & Admission Portal for educational institutions. Explore the platform built by VibeX Technologies at campusbuddy.online.',
-    },
     '/pricing': {
         title: 'Transparent Software Development Pricing | VibeX Technologies',
         description:
