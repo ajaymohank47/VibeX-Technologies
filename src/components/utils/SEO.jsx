@@ -74,7 +74,7 @@ const PAGE_SEO = {
     },
 };
 
-const SITE_URL = 'https://vibex-technologies.com';
+const SITE_URL = 'https://www.vibex-technologies.com';
 const DEFAULT_IMAGE = `${SITE_URL}/favicon.png`;
 
 const SEO = ({ title, description, path = '', ogImage, noIndex = false }) => {
