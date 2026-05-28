@@ -11,45 +11,45 @@ const groupedServices = [
     {
         category: "Development & Engineering",
         items: [
-            { icon: Monitor, title: "Website Development", desc: "Custom, responsive, and high-performance websites tailored to your business needs." },
-            { icon: Smartphone, title: "Mobile App Development", desc: "Native and cross-platform mobile applications for iOS and Android devices." },
-            { icon: Code, title: "Frontend Development", desc: "Interactive and dynamic user interfaces built with modern web frameworks." },
-            { icon: Server, title: "Backend Development", desc: "Robust, scalable, and secure server-side architectures and APIs." },
-            { icon: Database, title: "Database Setup & Management", desc: "Efficient data modeling, storage solutions, and seamless database administration." },
-            { icon: Zap, title: "Automation Creation", desc: "Streamlining workflows through intelligent and efficient automated processes." },
+            { icon: Monitor, title: "Website Development", slug: "website-development", desc: "Custom, responsive, and high-performance websites tailored to your business needs." },
+            { icon: Smartphone, title: "Mobile App Development", slug: "mobile-app-development", desc: "Native and cross-platform mobile applications for iOS and Android devices." },
+            { icon: Code, title: "Frontend Development", slug: "frontend-development", desc: "Interactive and dynamic user interfaces built with modern web frameworks." },
+            { icon: Server, title: "Backend Development", slug: "backend-development", desc: "Robust, scalable, and secure server-side architectures and APIs." },
+            { icon: Database, title: "Database Setup & Management", slug: "database-management", desc: "Efficient data modeling, storage solutions, and seamless database administration." },
+            { icon: Zap, title: "Automation Creation", slug: "automation-creation", desc: "Streamlining workflows through intelligent and efficient automated processes." },
         ]
     },
     {
         category: "Design & Product Innovation",
         items: [
-            { icon: PenTool, title: "UI / UX Design", desc: "Intuitive, engaging, and user-centric interfaces designed for optimal experiences." },
-            { icon: Lightbulb, title: "Idea & Product Development", desc: "Transforming innovative ideas into market-ready digital solutions." },
+            { icon: PenTool, title: "UI / UX Design", slug: "ui-ux-design", desc: "Intuitive, engaging, and user-centric interfaces designed for optimal experiences." },
+            { icon: Lightbulb, title: "Idea & Product Development", slug: "product-development", desc: "Transforming innovative ideas into market-ready digital solutions." },
         ]
     },
     {
         category: "Testing, Deployment & Maintenance",
         items: [
-            { icon: Bug, title: "Testing & Bug Fixing", desc: "Comprehensive quality assurance to deliver flawless and reliable software." },
-            { icon: Rocket, title: "App / Website Deployment", desc: "Smooth and secure launch of your digital products to the live environment." },
-            { icon: HardDrive, title: "Hosting & Server Management", desc: "Reliable cloud and on-premise solutions for high availability." },
-            { icon: RefreshCw, title: "Feature Updates", desc: "Continuous enhancement and integration of new functionalities." },
-            { icon: Wrench, title: "Maintenance & Support", desc: "Ongoing technical assistance to ensure your systems run flawlessly." },
+            { icon: Bug, title: "Testing & Bug Fixing", slug: "testing-bug-fixing", desc: "Comprehensive quality assurance to deliver flawless and reliable software." },
+            { icon: Rocket, title: "App / Website Deployment", slug: "app-website-deployment", desc: "Smooth and secure launch of your digital products to the live environment." },
+            { icon: HardDrive, title: "Hosting & Server Management", slug: "hosting-server-management", desc: "Reliable cloud and on-premise solutions for high availability." },
+            { icon: RefreshCw, title: "Feature Updates", slug: "feature-updates", desc: "Continuous enhancement and integration of new functionalities." },
+            { icon: Wrench, title: "Maintenance & Support", slug: "maintenance-support", desc: "Ongoing technical assistance to ensure your systems run flawlessly." },
         ]
     },
     {
         category: "Strategy & Consulting",
         items: [
-            { icon: ClipboardList, title: "Requirements Gathering", desc: "In-depth analysis to align project goals with your strategic vision." },
-            { icon: Calendar, title: "Project Planning", desc: "Structured roadmaps and agile methodologies for timely delivery." },
-            { icon: FileText, title: "Documentation", desc: "Clear, comprehensive user manuals and technical architecture guides." },
-            { icon: FileSpreadsheet, title: "Proposal & Pricing", desc: "Transparent, customized project scopes and flexible pricing models." },
+            { icon: ClipboardList, title: "Requirements Gathering", slug: "requirements-gathering", desc: "In-depth analysis to align project goals with your strategic vision." },
+            { icon: Calendar, title: "Project Planning", slug: "project-planning", desc: "Structured roadmaps and agile methodologies for timely delivery." },
+            { icon: FileText, title: "Documentation", slug: "documentation", desc: "Clear, comprehensive user manuals and technical architecture guides." },
+            { icon: FileSpreadsheet, title: "Proposal & Pricing", slug: "proposal-pricing", desc: "Transparent, customized project scopes and flexible pricing models." },
         ]
     },
     {
         category: "Marketing & Client Success",
         items: [
-            { icon: Megaphone, title: "Marketing & Acquisition", desc: "Strategic digital campaigns to drive growth and expand your client base." },
-            { icon: Headset, title: "Client Support", desc: "Dedicated, round-the-clock assistance for all your inquiries and needs." },
+            { icon: Megaphone, title: "Marketing & Acquisition", slug: "marketing-acquisition", desc: "Strategic digital campaigns to drive growth and expand your client base." },
+            { icon: Headset, title: "Client Support", slug: "client-support", desc: "Dedicated, round-the-clock assistance for all your inquiries and needs." },
         ]
     }
 ];
@@ -102,7 +102,7 @@ const Services = ({ isPage = false }) => {
                                         </p>
 
                                         <div className="mt-8 pt-4 border-t border-border-grey w-full">
-                                            <Link to="/services" className="text-accent-teal font-semibold text-sm group-hover:text-accent-orange transition-colors flex items-center gap-2">
+                                            <Link to={`/services/${service.slug}`} className="text-accent-teal font-semibold text-sm group-hover:text-accent-orange transition-colors flex items-center gap-2">
                                                 Learn more <span className="text-lg leading-none">&rarr;</span>
                                             </Link>
                                         </div>

@@ -3,9 +3,105 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Button from '../ui/Button';
 
-const Contact = ({ isPage = false }) => {
+const serviceToCategoryMap = {
+    // Development & Engineering
+    "Website Development": "Development & Engineering",
+    "Mobile App Development": "Development & Engineering",
+    "Frontend Development": "Development & Engineering",
+    "Backend Development": "Development & Engineering",
+    "Database Setup & Management": "Development & Engineering",
+    "Automation Creation": "Development & Engineering",
+    
+    // Design & Product Innovation
+    "UI / UX Design": "Design & Product Innovation",
+    "Idea & Product Development": "Design & Product Innovation",
+    
+    // Testing, Deployment & Maintenance
+    "Testing & Bug Fixing": "Testing, Deployment & Maintenance",
+    "App / Website Deployment": "Testing, Deployment & Maintenance",
+    "Hosting & Server Management": "Testing, Deployment & Maintenance",
+    "Feature Updates": "Testing, Deployment & Maintenance",
+    "Maintenance & Support": "Testing, Deployment & Maintenance",
+    
+    // Strategy & Consulting
+    "Requirements Gathering": "Strategy & Consulting",
+    "Project Planning": "Strategy & Consulting",
+    "Documentation": "Strategy & Consulting",
+    "Proposal & Pricing": "Strategy & Consulting",
+    
+    // Marketing & Client Success
+    "Marketing & Acquisition": "Marketing & Client Success",
+    "Client Support": "Marketing & Client Success",
+    
+    // General Options
+    "Sales & Solutions": "General Inquiry",
+    "Technical Support": "General Inquiry",
+    "Press & Media": "General Inquiry",
+    "Other / General": "General Inquiry"
+};
+
+const categoryToServicesMap = {
+    "General Inquiry": [
+        "Sales & Solutions",
+        "Technical Support",
+        "Press & Media",
+        "Other / General"
+    ],
+    "Development & Engineering": [
+        "Website Development",
+        "Mobile App Development",
+        "Frontend Development",
+        "Backend Development",
+        "Database Setup & Management",
+        "Automation Creation"
+    ],
+    "Design & Product Innovation": [
+        "UI / UX Design",
+        "Idea & Product Development"
+    ],
+    "Testing, Deployment & Maintenance": [
+        "Testing & Bug Fixing",
+        "App / Website Deployment",
+        "Hosting & Server Management",
+        "Feature Updates",
+        "Maintenance & Support"
+    ],
+    "Strategy & Consulting": [
+        "Requirements Gathering",
+        "Project Planning",
+        "Documentation",
+        "Proposal & Pricing"
+    ],
+    "Marketing & Client Success": [
+        "Marketing & Acquisition",
+        "Client Support"
+    ]
+};
+
+const Contact = ({ isPage = false, defaultService = "", hideHeader = false }) => {
     const HeadingTag = isPage ? 'h1' : 'h2';
     const [status, setStatus] = useState(null);
+
+    // Determine initial Category and Service based on defaultService prop
+    const initialCategory = serviceToCategoryMap[defaultService] || "General Inquiry";
+    const initialService = defaultService && serviceToCategoryMap[defaultService] ? defaultService : "Sales & Solutions";
+
+    const [category, setCategory] = useState(initialCategory);
+    const [service, setService] = useState(initialService);
+
+    const [prevDefaultService, setPrevDefaultService] = useState(defaultService);
+    if (defaultService !== prevDefaultService) {
+        setPrevDefaultService(defaultService);
+        setCategory(serviceToCategoryMap[defaultService] || "General Inquiry");
+        setService(defaultService && serviceToCategoryMap[defaultService] ? defaultService : "Sales & Solutions");
+    }
+
+    const handleCategoryChange = (e) => {
+        const selectedCat = e.target.value;
+        setCategory(selectedCat);
+        // Default to the first service under that category
+        setService(categoryToServicesMap[selectedCat][0]);
+    };
 
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -38,15 +134,17 @@ const Contact = ({ isPage = false }) => {
         <section className="py-24 bg-white relative" id="contact">
             <div className="container mx-auto px-6">
 
-                <div className="text-center mb-16 max-w-3xl mx-auto">
-                    <span className="text-accent-orange font-bold tracking-wider uppercase text-sm mb-4 block">Global Reach</span>
-                    <HeadingTag className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
-                        Initiate Your Transformation
-                    </HeadingTag>
-                    <p className="text-slate-600 text-lg">
-                        Connect with our dedicated development and support team to discuss your technological requirements.
-                    </p>
-                </div>
+                {!hideHeader && (
+                    <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <span className="text-accent-orange font-bold tracking-wider uppercase text-sm mb-4 block">Global Reach</span>
+                        <HeadingTag className="text-4xl md:text-5xl font-heading font-bold mb-6 text-corporate-navy tracking-tight">
+                            Initiate Your Transformation
+                        </HeadingTag>
+                        <p className="text-slate-600 text-lg">
+                            Connect with our dedicated development and support team to discuss your technological requirements.
+                        </p>
+                    </div>
+                )}
 
                 <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto">
 
@@ -129,7 +227,7 @@ const Contact = ({ isPage = false }) => {
                             </div>
 
                             <div className="space-y-1.5">
-                                <label className="text-xs font-bold text-corporate-navy uppercase tracking-wider">Corporate Email</label>
+                                <label className="text-xs font-bold text-corporate-navy uppercase tracking-wider">Email</label>
                                 <input
                                     type="email"
                                     name="email"
@@ -139,13 +237,40 @@ const Contact = ({ isPage = false }) => {
                             </div>
 
                             <div className="space-y-1.5">
-                                <label className="text-xs font-bold text-corporate-navy uppercase tracking-wider">Department / Inquiry Type</label>
-                                <select name="Department" required className="w-full bg-white border border-border-grey rounded px-4 py-4 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium appearance-none">
-                                    <option value="sales">Sales & Solutions</option>
-                                    <option value="support">Technical Support</option>
-                                    <option value="press">Press & Media</option>
-                                    <option value="other">Other / General</option>
-                                </select>
+                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                 <div className="space-y-1.5">
+                                     <label className="text-xs font-bold text-corporate-navy uppercase tracking-wider">Inquiry Section / Category</label>
+                                     <select 
+                                         name="Category" 
+                                         required 
+                                         value={category}
+                                         onChange={handleCategoryChange}
+                                         className="w-full bg-white border border-border-grey rounded px-4 py-4 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium appearance-none"
+                                     >
+                                         <option value="General Inquiry">General Inquiry</option>
+                                         <option value="Development & Engineering">Development & Engineering</option>
+                                         <option value="Design & Product Innovation">Design & Product Innovation</option>
+                                         <option value="Testing, Deployment & Maintenance">Testing, Deployment & Maintenance</option>
+                                         <option value="Strategy & Consulting">Strategy & Consulting</option>
+                                         <option value="Marketing & Client Success">Marketing & Client Success</option>
+                                     </select>
+                                 </div>
+                                 
+                                 <div className="space-y-1.5">
+                                     <label className="text-xs font-bold text-corporate-navy uppercase tracking-wider">Specific Service / Subsection</label>
+                                     <select 
+                                         name="Department" 
+                                         required 
+                                         value={service}
+                                         onChange={(e) => setService(e.target.value)}
+                                         className="w-full bg-white border border-border-grey rounded px-4 py-4 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium appearance-none"
+                                     >
+                                         {categoryToServicesMap[category].map((serv) => (
+                                             <option key={serv} value={serv}>{serv}</option>
+                                         ))}
+                                     </select>
+                                 </div>
+                             </div>
                             </div>
 
                             <div className="space-y-1.5">
