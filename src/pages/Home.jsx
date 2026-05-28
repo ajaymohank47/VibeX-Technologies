@@ -6,9 +6,7 @@ import IndustryExpertise from '../components/sections/IndustryExpertise';
 import About from '../components/sections/About';
 import Services from '../components/sections/Services';
 import Automation from '../components/sections/Automation';
-import Process from '../components/sections/Process';
 import Portfolio from '../components/sections/Portfolio';
-import Pricing from '../components/sections/Pricing';
 import Testimonials from '../components/sections/Testimonials';
 import Contact from '../components/sections/Contact';
 
@@ -19,11 +17,9 @@ const Home = () => {
             <Hero />
             <IndustryExpertise />
             <About />
-            <Services />
+            <Services featuredOnly={true} />
             <Automation />
-            <Process />
-            <Portfolio />
-            <Pricing />
+            <Portfolio featuredOnly={true} />
             <Testimonials />
             <Contact />
         </Layout>

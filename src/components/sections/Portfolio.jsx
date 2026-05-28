@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
 
 const projects = [
     {
@@ -53,8 +54,9 @@ const projects = [
     }
 ];
 
-const Portfolio = ({ isPage = false }) => {
+const Portfolio = ({ isPage = false, featuredOnly = false }) => {
     const HeadingTag = isPage ? 'h1' : 'h2';
+    const displayedProjects = featuredOnly ? projects.slice(0, 3) : projects;
     return (
         <section className="py-24 bg-corporate-navy text-white" id="portfolio">
             <div className="container mx-auto px-6">
@@ -70,7 +72,7 @@ const Portfolio = ({ isPage = false }) => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
+                    {displayedProjects.map((project, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
@@ -112,6 +114,14 @@ const Portfolio = ({ isPage = false }) => {
                         </motion.div>
                     ))}
                 </div>
+
+                {featuredOnly && (
+                    <div className="mt-12 text-center">
+                        <Link to="/portfolio" className="inline-flex items-center gap-2 bg-accent-orange hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-md transition-colors duration-300 shadow-md">
+                            View All Case Studies <ArrowRight size={16} />
+                        </Link>
+                    </div>
+                )}
 
             </div>
         </section>

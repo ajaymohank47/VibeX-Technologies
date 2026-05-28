@@ -4,8 +4,17 @@ import { motion } from 'framer-motion';
 import {
     Monitor, Smartphone, PenTool, Code, Server, Database,
     Zap, Bug, Rocket, ClipboardList, Calendar, RefreshCw,
-    Wrench, FileText, HardDrive, Megaphone, FileSpreadsheet, Headset, Lightbulb
+    Wrench, FileText, HardDrive, Megaphone, FileSpreadsheet, Headset, Lightbulb, ArrowRight
 } from 'lucide-react';
+
+const featuredServices = [
+    { icon: Monitor, title: "Website Development", slug: "website-development", desc: "Custom, responsive, and high-performance websites tailored to your business needs." },
+    { icon: Smartphone, title: "Mobile App Development", slug: "mobile-app-development", desc: "Native and cross-platform mobile applications for iOS and Android devices." },
+    { icon: PenTool, title: "UI / UX Design", slug: "ui-ux-design", desc: "Intuitive, engaging, and user-centric interfaces designed for optimal experiences." },
+    { icon: Server, title: "Backend Development", slug: "backend-development", desc: "Robust, scalable, and secure server-side architectures and APIs." },
+    { icon: Zap, title: "Automation Creation", slug: "automation-creation", desc: "Streamlining workflows through intelligent and efficient automated processes." },
+    { icon: Bug, title: "Testing & Bug Fixing", slug: "testing-bug-fixing", desc: "Comprehensive quality assurance to deliver flawless and reliable software." }
+];
 
 const groupedServices = [
     {
@@ -54,7 +63,7 @@ const groupedServices = [
     }
 ];
 
-const Services = ({ isPage = false }) => {
+const Services = ({ isPage = false, featuredOnly = false }) => {
     const HeadingTag = isPage ? 'h1' : 'h2';
     return (
         <section className="py-24 bg-white relative" id="services">
@@ -72,46 +81,86 @@ const Services = ({ isPage = false }) => {
                     </div>
                 </div>
 
-                <div className="space-y-24">
-                    {groupedServices.map((group, groupIndex) => (
-                        <div key={groupIndex}>
-                            <h3 className="text-3xl font-heading font-bold mb-10 text-corporate-navy border-b-2 border-slate-100 pb-4">
-                                {group.category}
-                            </h3>
+                {featuredOnly ? (
+                    <div>
+                        {/* 3-column grid shifting to carousel/scroll on mobile */}
+                        <div className="flex overflow-x-auto pb-8 -mx-6 px-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:pb-0 md:mx-0 md:px-0 gap-6 snap-x scroll-smooth hide-scrollbar items-stretch">
+                            {featuredServices.map((service, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                                    whileHover={{ y: -5 }}
+                                    className="min-w-[85vw] md:min-w-0 bg-surface-grey p-8 border-t-4 border-accent-teal shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col snap-center h-auto"
+                                >
+                                    <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-corporate-navy mb-6 group-hover:bg-corporate-navy group-hover:text-white transition-colors duration-300 shadow-sm border border-border-grey">
+                                        <service.icon size={28} strokeWidth={1.5} />
+                                    </div>
+                                    <h4 className="text-xl font-heading font-bold mb-4 text-corporate-navy tracking-tight">
+                                        {service.title}
+                                    </h4>
+                                    <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                                        {service.desc}
+                                    </p>
 
-                            {/* 4-column grid shifting to carousel/scroll on mobile */}
-                            <div className="flex overflow-x-auto pb-8 -mx-6 px-6 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:mx-0 md:px-0 gap-6 snap-x scroll-smooth hide-scrollbar items-stretch">
-                                {group.items.map((service, index) => (
-                                    <motion.div
-                                        key={index}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1, duration: 0.5 }}
-                                        whileHover={{ y: -5 }}
-                                        className="min-w-[85vw] md:min-w-0 bg-surface-grey p-8 border-t-4 border-accent-teal shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col snap-center h-auto"
-                                    >
-                                        <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-corporate-navy mb-6 group-hover:bg-corporate-navy group-hover:text-white transition-colors duration-300 shadow-sm border border-border-grey">
-                                            <service.icon size={28} strokeWidth={1.5} />
-                                        </div>
-                                        <h4 className="text-xl font-heading font-bold mb-4 text-corporate-navy tracking-tight">
-                                            {service.title}
-                                        </h4>
-                                        <p className="text-slate-600 text-sm leading-relaxed flex-grow">
-                                            {service.desc}
-                                        </p>
-
-                                        <div className="mt-8 pt-4 border-t border-border-grey w-full">
-                                            <Link to={`/services/${service.slug}`} className="text-accent-teal font-semibold text-sm group-hover:text-accent-orange transition-colors flex items-center gap-2">
-                                                Learn more <span className="text-lg leading-none">&rarr;</span>
-                                            </Link>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
+                                    <div className="mt-8 pt-4 border-t border-border-grey w-full">
+                                        <Link to={`/services/${service.slug}`} className="text-accent-teal font-semibold text-sm group-hover:text-accent-orange transition-colors flex items-center gap-2">
+                                            Learn more <span className="text-lg leading-none">&rarr;</span>
+                                        </Link>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                        <div className="mt-12 text-center">
+                            <Link to="/services" className="inline-flex items-center gap-2 bg-corporate-navy hover:bg-corporate-navy-light text-white font-bold py-3 px-8 rounded-md transition-colors duration-300 shadow-md">
+                                Explore All 19 Capabilities <ArrowRight size={16} />
+                            </Link>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="space-y-24">
+                        {groupedServices.map((group, groupIndex) => (
+                            <div key={groupIndex}>
+                                <h3 className="text-3xl font-heading font-bold mb-10 text-corporate-navy border-b-2 border-slate-100 pb-4">
+                                    {group.category}
+                                </h3>
+
+                                {/* 4-column grid shifting to carousel/scroll on mobile */}
+                                <div className="flex overflow-x-auto pb-8 -mx-6 px-6 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:pb-0 md:mx-0 md:px-0 gap-6 snap-x scroll-smooth hide-scrollbar items-stretch">
+                                    {group.items.map((service, index) => (
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: index * 0.1, duration: 0.5 }}
+                                            whileHover={{ y: -5 }}
+                                            className="min-w-[85vw] md:min-w-0 bg-surface-grey p-8 border-t-4 border-accent-teal shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col snap-center h-auto"
+                                        >
+                                            <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-corporate-navy mb-6 group-hover:bg-corporate-navy group-hover:text-white transition-colors duration-300 shadow-sm border border-border-grey">
+                                                <service.icon size={28} strokeWidth={1.5} />
+                                            </div>
+                                            <h4 className="text-xl font-heading font-bold mb-4 text-corporate-navy tracking-tight">
+                                                {service.title}
+                                            </h4>
+                                            <p className="text-slate-600 text-sm leading-relaxed flex-grow">
+                                                {service.desc}
+                                            </p>
+
+                                            <div className="mt-8 pt-4 border-t border-border-grey w-full">
+                                                <Link to={`/services/${service.slug}`} className="text-accent-teal font-semibold text-sm group-hover:text-accent-orange transition-colors flex items-center gap-2">
+                                                    Learn more <span className="text-lg leading-none">&rarr;</span>
+                                                </Link>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
 
             </div>
 
