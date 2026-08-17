@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Button from '../ui/Button';
+import Captcha from '../ui/Captcha';
 
 const serviceToCategoryMap = {
     // Development & Engineering
@@ -78,6 +79,15 @@ const categoryToServicesMap = {
     ]
 };
 
+const generateCaptchaCode = () => {
+    const chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+    let code = "";
+    for (let i = 0; i < 6; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return code;
+};
+
 const Contact = ({ isPage = false, defaultService = "", hideHeader = false }) => {
     const HeadingTag = isPage ? 'h1' : 'h2';
     const [status, setStatus] = useState(null);
@@ -88,6 +98,14 @@ const Contact = ({ isPage = false, defaultService = "", hideHeader = false }) =>
 
     const [category, setCategory] = useState(initialCategory);
     const [service, setService] = useState(initialService);
+
+    const [captchaCode, setCaptchaCode] = useState(generateCaptchaCode());
+    const [userCaptchaInput, setUserCaptchaInput] = useState("");
+
+    const handleCaptchaRefresh = () => {
+        setCaptchaCode(generateCaptchaCode());
+        setUserCaptchaInput("");
+    };
 
     const [prevDefaultService, setPrevDefaultService] = useState(defaultService);
     if (defaultService !== prevDefaultService) {
@@ -105,6 +123,12 @@ const Contact = ({ isPage = false, defaultService = "", hideHeader = false }) =>
 
     const onSubmit = async (event) => {
         event.preventDefault();
+        
+        if (userCaptchaInput.trim().toUpperCase() !== captchaCode) {
+            setStatus("captcha_error");
+            return;
+        }
+
         setStatus("sending");
         const formData = new FormData(event.target);
 
@@ -125,8 +149,10 @@ const Contact = ({ isPage = false, defaultService = "", hideHeader = false }) =>
         if (res.success) {
             setStatus("success");
             event.target.reset();
+            handleCaptchaRefresh();
         } else {
             setStatus("error");
+            handleCaptchaRefresh();
         }
     };
 
@@ -283,6 +309,26 @@ const Contact = ({ isPage = false, defaultService = "", hideHeader = false }) =>
                                 ></textarea>
                             </div>
 
+                            <div className="space-y-3 bg-slate-50 p-4 rounded-lg border border-border-grey">
+                                <label className="text-xs font-bold text-corporate-navy uppercase tracking-wider block">Security Check</label>
+                                <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                                    <Captcha code={captchaCode} onRefresh={handleCaptchaRefresh} />
+                                    <div className="flex-1 w-full">
+                                        <input
+                                            type="text"
+                                            value={userCaptchaInput}
+                                            onChange={(e) => {
+                                                setUserCaptchaInput(e.target.value);
+                                                if (status === 'captcha_error') setStatus(null);
+                                            }}
+                                            placeholder="Enter CAPTCHA code"
+                                            required
+                                            className="w-full bg-white border border-border-grey rounded px-3 py-3.5 text-slate-900 focus:outline-none focus:border-accent-teal focus:ring-2 focus:ring-accent-teal/20 transition-all font-medium text-sm"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
                             <Button
                                 variant="accent"
                                 className={`w-full mt-2 group ${status === 'sending' ? 'opacity-70 cursor-not-allowed' : ''}`}
@@ -306,6 +352,11 @@ const Contact = ({ isPage = false, defaultService = "", hideHeader = false }) =>
                             {status === 'error' && (
                                 <div className="p-3 bg-red-50 text-red-700 text-sm font-medium rounded mt-2">
                                     Something went wrong. Please try again later.
+                                </div>
+                            )}
+                            {status === 'captcha_error' && (
+                                <div className="p-3 bg-red-50 text-red-700 text-sm font-medium rounded mt-2">
+                                    Incorrect CAPTCHA code. Please try again.
                                 </div>
                             )}
 
